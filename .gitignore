@@ -39,3 +39,5 @@ Thumbs.db
 # Custom #
 ######################
 node_modules
+database.js
+auth.js
