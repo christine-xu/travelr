@@ -1,13 +1,37 @@
+/* Global Styles */
+
 * { padding: 0; margin: 0; }
 
 html, body { height: 100%; }
 
+h1,
+h2,
+p,
+a { font-family: 'Raleway', sans-serif; }
+
+.action-button { text-decoration: none; font-size: 12px; text-transform: uppercase; color: #5d7592; border: 1px solid #5d7592; padding: 5px; margin: 10px;
+    -webkit-transition: color 0.2s linear; -moz-transition: color 0.2s linear; -ms-transition: color 0.2s linear; -o-transition: color 0.2s linear; transition: color 0.2s linear; }
+.action-button:hover { color: #d3cfc8; }
+
+/* Custom Page Styles */
 #home { background: url('/public/images/home.jpg') no-repeat center center fixed; background-size: cover; min-height: 100%; }
 
-#home .login { width: 390px; padding-top: 180px; margin: auto auto; font-family: 'Raleway', sans-serif; color: #f8f8f8; text-align: center;}
-
+#home .login { width: 390px; padding-top: 180px; margin: auto auto; color: #f8f8f8; text-align: center;}
 #home .login h1 { font-weight: 200; font-size: 120px; letter-spacing: 8px; }
-
 #home .login p { font-weight: 300; background-color:rgba(0,0,0,0.1); border-radius: 12px; padding-top: 10px; }
-
 #home .login img { width: 80px; padding: 10px 0; }
+
+#welcome { font-size: 20px; margin: 30px auto; text-align: center; }
+#welcome h1 { color: #2d3a48; font-weight: 200; margin-bottom: 10px; }
+
+#create-post { display: none; width: 700px; margin: 0 auto; border: 1px solid #5d7592; height: 300px; }
+#create-post .choice { float: left; padding: 15px; width: 200px; }
+#create-post h2 { font-size: 16px; text-transform: uppercase; font-weight: 200; }
+#create-post .choice input[name="destination"],
+#create-post .choice input[name="date"] { width: 170px; height: 25px; }
+#create-post .choice input[name="comments"] { width: 190px; height: 180px; }
+#create-post .action-button { float: right; margin-right: 30px; }
+
+
+
+
