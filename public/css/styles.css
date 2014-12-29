@@ -24,14 +24,17 @@ a { font-family: 'Raleway', sans-serif; }
 #welcome { font-size: 20px; margin: 30px auto; text-align: center; }
 #welcome h1 { color: #2d3a48; font-weight: 200; margin-bottom: 10px; }
 
+#create-post h2,
+#post-list h2 { font-size: 16px; text-transform: uppercase; font-weight: 200; }
+
 #create-post { display: none; width: 700px; margin: 0 auto; border: 1px solid #5d7592; height: 300px; }
 #create-post .choice { float: left; padding: 15px; width: 200px; }
-#create-post h2 { font-size: 16px; text-transform: uppercase; font-weight: 200; }
 #create-post .choice input[name="destination"],
 #create-post .choice input[name="date"] { width: 170px; height: 25px; }
 #create-post .choice input[name="comments"] { width: 190px; height: 180px; }
 #create-post .action-button { float: right; margin-right: 30px; }
 
-
-
+#post-list { width: 700px; margin: 10px auto; padding: 10px 0; border: 1px solid #5d7592;  }
+.single-post { display: flex; }
+.single-post .post-block { margin: 0 auto; }
 

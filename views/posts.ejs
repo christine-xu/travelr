@@ -34,10 +34,22 @@
         </div>
         <div id="post-list">
             <div class="single-post" ng-repeat="post in posts">
-            {{post.user}}
-            {{post.destination}}
-            {{post.date}}
-            {{post.comments}}
+                <div class="post-block">
+                    <h2>Who</h2>
+                    <p>{{post.name}}</p>
+                </div>
+                <div class="post-block">
+                    <h2>Where</h2>
+                    <p>{{post.destination}}</p>
+                </div>
+                <div class="post-block">
+                    <h2>When</h2>
+                    <p>{{post.date}}</p>
+                </div>
+                <div class="post-block">
+                    <h2>What</h2>
+                    <p>{{post.comments}}</p>
+                </div>
             </div>
         </div>
     </div>
