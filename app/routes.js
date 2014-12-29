@@ -1,20 +1,11 @@
-module.exports = function(app, passport) {
+module.exports = function(app, passport, Post) {
 
-    // =====================================
-    // HOME PAGE (with login links) ========
-    // =====================================
+    // Home page
     app.get('/', function(req, res) {
         res.render('index.ejs'), { message: req.flash('loginMessage') };// load the index.ejs file
     });
 
-    // process the login form
-    // app.post('/', do all our passport stuff here);
-
-    // =====================================
-    // PROFILE SECTION =====================
-    // =====================================
-    // we will want this protected so you have to be logged in to visit
-    // we will use route middleware to verify this (the isLoggedIn function)
+    // check if user is logged in to display dashboard
     app.get('/posts', isLoggedIn, function(req, res) {
         res.render('posts.ejs', {
             user : req.user // get the user out of session and pass to template
@@ -30,12 +21,47 @@ module.exports = function(app, passport) {
             failureRedirect : '/'
         }));
 
-    // =====================================
-    // LOGOUT ==============================
-    // =====================================
+    // logout
     app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/');
+    });
+
+    app.get('/api/posts', function(req, res) {
+        Post.find(function(err, posts) {
+            if(err) res.send(err);
+            res.json(posts);
+        });
+    });
+
+    app.post('/api/posts', function(req, res) {
+        Post.create({
+            name : req.user.facebook.name,
+            destination: req.body.destination,
+            date: req.body.date,
+            comments: req.body.comments,
+            done: false
+        }, function(err, post) {
+            if(err) res.send(err);
+
+            Post.find(function(err, posts) {
+                if(err) res.send(err);
+                res.json(posts);
+            });
+        });
+    });
+
+    app.delete('/api/posts/:post_id', function(req, res) {
+        Post.remove({
+            _id : req.params.post_id
+        }, function(err, post) {
+            if(err) res.send(err);
+
+            Post.find(function(err, posts) {
+                if(err) res.send(err);
+                res.json(posts);
+            });
+        });
     });
 };
 
